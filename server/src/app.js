@@ -13,7 +13,7 @@ app.use(cors())
 require('./routes')(app)
 
 // sync() will create all table if they doesn't exist in database
-sequelize.sync().then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(config.port)
   console.log(`Server started on port ${config.port}`)
 })
